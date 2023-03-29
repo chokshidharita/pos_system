@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #023144;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chokshi.deep.pos_system.DashboardController">
+   <center>
+      <GridPane hgap="10.0" vgap="10.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="15.0" prefHeight="100.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <padding>
+            <Insets bottom="30.0" left="25.0" right="25.0" top="30.0" />
+         </padding>
+         <children>
+            <Button fx:id="salesDashboardButton" mnemonicParsing="false" onAction="#onSalesButtonClick" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #929c9f;" text="SALES" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="36.0" />
+               </font>
+            </Button>
+            <Button fx:id="reportDashboardButton" mnemonicParsing="false" onAction="#onReportButtonClick" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #929c9f;" text="REPORT" textFill="WHITE" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Times New Roman" size="36.0" />
+               </font>
+            </Button>
+            <Button fx:id="historyDashboardButton" mnemonicParsing="false" onAction="#onHistoryButtonClick" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #929c9f;" text="HISTORY" textFill="WHITE" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Times New Roman" size="36.0" />
+               </font>
+            </Button>
+            <Button fx:id="adminDashboardButton" mnemonicParsing="false" onAction="#onAdminButtonClick" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #929c9f;" text="ADMIN" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Times New Roman" size="36.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="106.0" prefWidth="188.0" style="-fx-background-color: #929c9f;" text="LOGOUT" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Times New Roman" size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>
