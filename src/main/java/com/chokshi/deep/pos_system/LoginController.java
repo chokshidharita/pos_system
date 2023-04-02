@@ -6,7 +6,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 
-import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class LoginController {
 
@@ -19,15 +21,22 @@ public class LoginController {
     FxmlLoaderUtil fxmlLoaderUtil = FxmlLoaderUtil.getInstance();
 
     @FXML
-    protected void onLoginButtonClick(ActionEvent event) throws IOException {
+    protected void onLoginButtonClick(ActionEvent event) {
         int password = Integer.parseInt(pinInput.getText());
-        //TODO: to be removed once database is integrated
-        System.out.println("Password: " + password);
-        if (password == 1234)
-            fxmlLoaderUtil.loadFXML(event, "dashboard-view.fxml");
-        else {
-            onClearButtonClick();
-            errorLabel.setText("Invalid pin");
+
+        try {
+            Connection connection = MySQLConnection.getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM user_info where user_pin=" + password);
+
+            if (rs.next()) {
+                fxmlLoaderUtil.loadFXML(event, "dashboard-view.fxml");
+            } else {
+                onClearButtonClick();
+                errorLabel.setText("Invalid pin");
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
 
@@ -41,7 +50,6 @@ public class LoginController {
 
     @FXML
     protected void onClearButtonClick() {
-        //TODO: sales controller
         if (pinInput.getLength() > 0)
             pinInput.deleteText(0, pinInput.getLength());
     }
